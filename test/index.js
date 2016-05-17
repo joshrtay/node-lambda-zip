@@ -14,8 +14,8 @@ const prosh = require('prosh')
  */
 
 test('should work', co.wrap(function * (t) {
-  yield zip('function', 'lambda.zip', {cwd: __dirname})
+  let out = yield zip('function', 'lambda.zip', {cwd: __dirname})
   yield prosh('rm lambda.zip', {cwd: __dirname})
-  t.ok(true)
+  t.equal(out, 'lambda.zip')
   t.end()
 }))
